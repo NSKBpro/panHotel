@@ -1,0 +1,208 @@
+﻿<Window x:Class="HotelManagment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:HotelManagment.ViewModels"  
+        Title="MainWindow" Height="620" Width="1200" Background="Gray" WindowStartupLocation="CenterScreen" Icon="Images/tardis.png" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Views/Style.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:ClockViewModel x:Key="ClockViewModel"/>
+        </ResourceDictionary>
+
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource ClockViewModel}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"></RowDefinition>
+            <RowDefinition Height="157*"></RowDefinition>
+            <RowDefinition Height="12*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0"  Style="{StaticResource ContentPanel}" DockPanel.Dock="Top" Grid.ColumnSpan="3">
+            <StackPanel HorizontalAlignment="Left" Margin="0,0,0,0">
+                <Border BorderThickness="0 0 0 0" BorderBrush="Honeydew" >
+                    <Menu IsHitTestVisible="False" Padding="0"   Background="#FF3A3A3A">
+                        <MenuItem Name="PrviMeni" Padding="0" Margin="5,3,0,0">
+                            <MenuItem.Header>
+                                <Border  Background="LimeGreen" BorderBrush="SlateGray" BorderThickness="2,2,2,2" CornerRadius="18,18,18,18">
+                                    <StackPanel>
+
+
+                                        <Image Width="85" Height="75" Source="Images/tardis.png" />
+
+                                    </StackPanel>
+                                </Border>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem Padding="0"  Margin="7,3,0,0">
+                            <MenuItem.Header>
+                                <Border  Background="OrangeRed" BorderBrush="SlateGray" BorderThickness="2,2,2,2"  CornerRadius="18,18,18,18">
+                                    <StackPanel>
+
+
+                                        <Image Width="85" Height="75" Source="Images/services.png" />
+
+                                    </StackPanel>
+                                </Border>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem Padding="0"  Margin="7,3,0,0">
+                            <MenuItem.Header>
+                                <Border  Background="Teal" BorderBrush="SlateGray" BorderThickness="2,2,2,2" CornerRadius="18,18,18,18">
+                                    <StackPanel>
+
+
+                                        <Image Width="85" Height="75" Source="Images/users.png" />
+
+                                    </StackPanel>
+                                </Border>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </Menu>
+
+                </Border>
+            </StackPanel>
+            <StackPanel  Margin="5,0,8,3"  DockPanel.Dock="Right" HorizontalAlignment="Right">
+                <TextBlock  Style="{StaticResource HeaderTextStyle}"   TextAlignment="Right" Text="{Binding Time}"/>
+                <TextBlock  Style="{StaticResource SubHeaderTextStyle}" TextAlignment="Right" Text="{Binding Date}"/>
+
+            </StackPanel>
+
+        </DockPanel>
+        <ListBox Grid.Row="1"  Grid.Column="0">
+            <ListBox.Resources>
+                <Style TargetType="{x:Type Expander}">
+                    <Setter Property="IsExpanded"
+           Value="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}"/>
+                </Style>
+            </ListBox.Resources>
+            <ListBox.Template>
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <ItemsPresenter/>
+                </ControlTemplate>
+            </ListBox.Template>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                <ContentPresenter Content="{TemplateBinding Content}"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+            <Expander Background="LimeGreen">
+                <Expander.Header>
+                    <BulletDecorator>
+                        <BulletDecorator.Bullet>
+                            <Image Source="Images/tardis.png" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        </BulletDecorator.Bullet>
+                        <TextBlock Margin="0,0,0,0" Text="Hotel Managment" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
+                    </BulletDecorator>
+                </Expander.Header>
+                <WrapPanel>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="New Reservation"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="List of Reservations"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Search"/>
+                </WrapPanel>
+            </Expander>
+
+            <Expander Background="OrangeRed">
+                <Expander.Header>
+                    <BulletDecorator>
+                        <BulletDecorator.Bullet>
+                            <Image Source="Images/services.png" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        </BulletDecorator.Bullet>
+                        <TextBlock Margin="10,0,0,0" Text="Room Service" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
+                    </BulletDecorator>
+                </Expander.Header>
+                <WrapPanel>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Food and Menu"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Listing Services"/>
+
+                </WrapPanel>
+            </Expander>
+
+            <Expander Background="Teal">
+                <Expander.Header>
+                    <BulletDecorator>
+                        <BulletDecorator.Bullet>
+                            <Image Source="Images/users.png" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        </BulletDecorator.Bullet>
+                        <TextBlock Margin="10,0,0,0" Text="Users" VerticalAlignment="Center" HorizontalAlignment="Stretch" Foreground="White" />
+                    </BulletDecorator>
+                </Expander.Header>
+                <WrapPanel>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Listing Users"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Manage users"/>
+                </WrapPanel>
+            </Expander>
+
+        </ListBox>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="488" Margin="5,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="977" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="52*"></RowDefinition>
+                <RowDefinition Height="378*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ComboBox Style="{StaticResource ComboBoxFlatStyle}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="211" Height="23" Margin="0,24,0,0"/>
+            <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Guest" VerticalAlignment="Top" RenderTransformOrigin="-0.841,0.489" Margin="0,3,0,0" Height="16" Width="50"/>
+            <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" HorizontalAlignment="Left" Margin="252,3,0,0" TextWrapping="Wrap" Text="Floor Of Room" VerticalAlignment="Top" Height="16" Width="112"/>
+            <ComboBox Style="{StaticResource ComboBoxFlatStyle}"  HorizontalAlignment="Left" Margin="252,24,0,0" VerticalAlignment="Top" Width="125" Height="23"/>
+            <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" HorizontalAlignment="Left" Margin="507,6,0,0" TextWrapping="Wrap" Text="Price" VerticalAlignment="Top" RenderTransformOrigin="3.101,-0.008" Width="33"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="23" Margin="463,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="55"/>
+            <DatePicker Style="{StaticResource DatePickerStyle}" HorizontalAlignment="Left" Margin="644,24,0,0" VerticalAlignment="Top" Width="152" Height="24"/>
+            <DatePicker Style="{StaticResource DatePickerStyle}" HorizontalAlignment="Left" Margin="817,24,0,0" VerticalAlignment="Top" Width="150"/>
+            <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" HorizontalAlignment="Left" Margin="756,3,0,0" TextWrapping="Wrap" Text="Date of Reservation" VerticalAlignment="Top" RenderTransformOrigin="2.14,0.063"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="23" Margin="528,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="55" RenderTransformOrigin="1,0.522"/>
+            <TextBlock HorizontalAlignment="Left" Margin="518,28,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top"/>
+            <DataGrid Style="{StaticResource DataGridRowStyle}" HorizontalAlignment="Left" Margin="0,40,0,0" Grid.Row="1" Height="Auto" Width="967">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Reservation ID"   Width="0.1*" />
+                    <DataGridTextColumn Header="Room Number"   Width="0.15*"/>
+                    <DataGridTextColumn Header="Start Date"   Width="0.15*"/>
+                    <DataGridTextColumn Header="End Date"   Width="0.15*"/>
+                    <DataGridTextColumn Header="Guest Name"   Width="0.15*"/>
+                    <DataGridTextColumn Header="Guest email"   Width="0.15*"/>
+                    <DataGridTextColumn Header="Guest email"   Width="0.15*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock Style="{StaticResource SubHeaderTextStyle}" Text="Reservation" HorizontalAlignment="Left" Margin="10,8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="-0.987,0"/>
+            <Button  Width="200" Height="40" VerticalAlignment="Top"   Margin="0,5,777,0" Grid.Row="2">
+                <StackPanel>
+                    
+                    <TextBlock Text="New Reservation" FontSize="14" />
+                </StackPanel>
+            </Button>
+            <Button  Width="200" Height="40" VerticalAlignment="Top"   Margin="252,5,525,0" Grid.Row="2">
+                <StackPanel>
+                    <TextBlock Text="Update Reservation" FontSize="14" />
+                </StackPanel>
+            </Button>
+            <Button  Width="200" Height="40" VerticalAlignment="Top"   Margin="507,5,270,0" Grid.Row="2">
+                <StackPanel>
+                    <TextBlock Text="Delete Reservation" FontSize="14" />
+                </StackPanel>
+            </Button>
+            <Button  Width="200" Height="40" VerticalAlignment="Top"   Margin="767,5,10,0" Grid.Row="2">
+                <StackPanel>
+                    <TextBlock Text="Logout" FontSize="14" />
+                </StackPanel>
+            </Button>
+          
+        </Grid>
+    </Grid>
+
+</Window>
