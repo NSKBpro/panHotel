@@ -17,9 +17,11 @@ namespace HotelManagment.ViewModels
 
         ObservableCollection<HotelReservation> listOfReservations;
         ObservableCollection<HotelUser> listOfUsers;
+        ObservableCollection<HotelRoom> listOfRooms;
 
         HotelReservation reservation = new HotelReservation();
         HotelUser cmbHotelUser = new HotelUser();
+        HotelRoom cmbHotelRoom = new HotelRoom();
        
         public HotelReservation SelectedReservation
         {
@@ -74,6 +76,33 @@ namespace HotelManagment.ViewModels
             {
                 cmbHotelUser = value;
                 NotifyPropertyChanged("SelectedHotelUser");
+            }
+        }
+
+        public ObservableCollection<HotelRoom> ListHotelRooms
+        {
+            get
+            {
+                listOfRooms = new ObservableCollection<HotelRoom>(hotelService.ListHotelRooms());
+                return listOfRooms;
+            }
+            set
+            {
+                listOfRooms = value;
+                NotifyPropertyChanged("ListHotelRooms");
+            }
+        }
+
+        public HotelRoom SelectedHotelRoom
+        {
+            get
+            {
+                return cmbHotelRoom;
+            }
+            set
+            {
+                cmbHotelRoom = value;
+                NotifyPropertyChanged("SelectedHotelRoom");
             }
         }
 

@@ -86,5 +86,21 @@ namespace HotelService
 
             return hotelGuests;
         }
+
+
+        public ObservableCollection<HotelRoom> ListHotelRooms()
+        {
+            ObservableCollection<HotelRoom> hotelRooms = new ObservableCollection<HotelRoom>();
+
+            foreach (Room roomDatabase in db.Room)
+            {
+                if (roomDatabase.RoomOccupancy)
+                {
+                    hotelRooms.Add(MapperObjectClass.SwapRoom(roomDatabase));
+                }
+             
+            }
+            return hotelRooms;
+        }
     }
 }

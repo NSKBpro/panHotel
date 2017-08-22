@@ -19,6 +19,12 @@
   <wsdl:message name="HotelServisInterface_ListHotelGuest_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListHotelGuestResponse" />
   </wsdl:message>
+  <wsdl:message name="HotelServisInterface_ListHotelRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListHotelRooms" />
+  </wsdl:message>
+  <wsdl:message name="HotelServisInterface_ListHotelRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListHotelRoomsResponse" />
+  </wsdl:message>
   <wsdl:portType name="HotelServisInterface">
     <wsdl:operation name="GetReservations">
       <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/GetReservations" message="tns:HotelServisInterface_GetReservations_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="ListHotelGuest">
       <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/ListHotelGuest" message="tns:HotelServisInterface_ListHotelGuest_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/ListHotelGuestResponse" message="tns:HotelServisInterface_ListHotelGuest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListHotelRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/ListHotelRooms" message="tns:HotelServisInterface_ListHotelRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/ListHotelRoomsResponse" message="tns:HotelServisInterface_ListHotelRooms_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_HotelServisInterface" type="tns:HotelServisInterface">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="ListHotelGuest">
       <soap:operation soapAction="http://tempuri.org/HotelServisInterface/ListHotelGuest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListHotelRooms">
+      <soap:operation soapAction="http://tempuri.org/HotelServisInterface/ListHotelRooms" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

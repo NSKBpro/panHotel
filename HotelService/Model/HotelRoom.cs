@@ -32,5 +32,10 @@ namespace HotelService.Model
             this.RoomFloor = roomFloor;
             this.RoomOccupancy = RoomOccupancy;
         }
+
+        public HotelRoom()
+        {
+
+        }
     }
 }

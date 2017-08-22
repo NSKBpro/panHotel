@@ -66,4 +66,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfHotelUser" nillable="true" type="tns:ArrayOfHotelUser" />
+  <xs:complexType name="ArrayOfHotelRoom">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelRoom" nillable="true" type="tns:HotelRoom" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelRoom" nillable="true" type="tns:ArrayOfHotelRoom" />
 </xs:schema>

@@ -25,4 +25,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListHotelRooms">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListHotelRoomsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HotelService.Model" minOccurs="0" name="ListHotelRoomsResult" nillable="true" type="q3:ArrayOfHotelRoom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

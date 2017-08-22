@@ -26,6 +26,12 @@ namespace HotelManagment.HotelServiceFinal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/ListHotelGuest", ReplyAction="http://tempuri.org/HotelServisInterface/ListHotelGuestResponse")]
         System.Threading.Tasks.Task<HotelService.Model.HotelUser[]> ListHotelGuestAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/ListHotelRooms", ReplyAction="http://tempuri.org/HotelServisInterface/ListHotelRoomsResponse")]
+        HotelService.Model.HotelRoom[] ListHotelRooms();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/ListHotelRooms", ReplyAction="http://tempuri.org/HotelServisInterface/ListHotelRoomsResponse")]
+        System.Threading.Tasks.Task<HotelService.Model.HotelRoom[]> ListHotelRoomsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace HotelManagment.HotelServiceFinal {
         
         public System.Threading.Tasks.Task<HotelService.Model.HotelUser[]> ListHotelGuestAsync() {
             return base.Channel.ListHotelGuestAsync();
+        }
+        
+        public HotelService.Model.HotelRoom[] ListHotelRooms() {
+            return base.Channel.ListHotelRooms();
+        }
+        
+        public System.Threading.Tasks.Task<HotelService.Model.HotelRoom[]> ListHotelRoomsAsync() {
+            return base.Channel.ListHotelRoomsAsync();
         }
     }
 }

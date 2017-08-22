@@ -99,6 +99,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\DataSources\HotelService.Model.HotelReservation.datasource" />
+    <None Include="Properties\DataSources\HotelService.Model.HotelRoom.datasource" />
     <None Include="Properties\DataSources\HotelService.Model.HotelUser.datasource" />
     <None Include="Properties\DataSources\HotelService.Reservation.datasource" />
     <None Include="Properties\Settings.settings">
