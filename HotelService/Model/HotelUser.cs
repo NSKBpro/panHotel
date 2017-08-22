@@ -56,5 +56,10 @@ namespace HotelService.Model
             this.PostCode = postCode;
             this.Role = role;
         }
+
+        public HotelUser()
+        {
+
+        }
     }
 }

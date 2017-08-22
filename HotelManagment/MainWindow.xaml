@@ -157,7 +157,7 @@
                 <RowDefinition Height="378*"></RowDefinition>
                 <RowDefinition Height="49*"></RowDefinition>
             </Grid.RowDefinitions>
-            <ComboBox Style="{StaticResource ComboBoxFlatStyle}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="211" Height="23" Margin="0,24,0,0"/>
+            <ComboBox Style="{StaticResource ComboBoxFlatStyle}" ItemsSource="{Binding MainApplicationViewModel.ListGuests}" DisplayMemberPath="Name" SelectedItem="{Binding MainApplicationViewModel.SelectedHotelUser,Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="211" Height="23" Margin="0,24,0,0"/>
             <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Guest" VerticalAlignment="Top" RenderTransformOrigin="-0.841,0.489" Margin="0,3,0,0" Height="16" Width="50"/>
             <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" HorizontalAlignment="Left" Margin="252,3,0,0" TextWrapping="Wrap" Text="Floor Of Room" VerticalAlignment="Top" Height="16" Width="112"/>
             <ComboBox Style="{StaticResource ComboBoxFlatStyle}"  HorizontalAlignment="Left" Margin="252,24,0,0" VerticalAlignment="Top" Width="125" Height="23"/>

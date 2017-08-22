@@ -71,5 +71,20 @@ namespace HotelService
 
             return null;
         }
+
+
+        public ObservableCollection<HotelUser> ListHotelGuest()
+        {
+            ObservableCollection<HotelUser> hotelGuests = new ObservableCollection<HotelUser>();
+            foreach (User userDatabase in db.User)
+            {
+                if (userDatabase.Role == "guest")
+                {
+                    hotelGuests.Add(MapperObjectClass.SwapUser(userDatabase));
+                }
+            }
+
+            return hotelGuests;
+        }
     }
 }

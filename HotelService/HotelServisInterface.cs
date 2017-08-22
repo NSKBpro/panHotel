@@ -16,6 +16,8 @@ namespace HotelService
 
         [OperationContract]
         ObservableCollection<HotelReservation> GetReservations();
+        [OperationContract]
+        ObservableCollection<HotelUser> ListHotelGuest();
 
     }
 

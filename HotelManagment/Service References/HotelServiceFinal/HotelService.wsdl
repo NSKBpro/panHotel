@@ -13,16 +13,35 @@
   <wsdl:message name="HotelServisInterface_GetReservations_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetReservationsResponse" />
   </wsdl:message>
+  <wsdl:message name="HotelServisInterface_ListHotelGuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListHotelGuest" />
+  </wsdl:message>
+  <wsdl:message name="HotelServisInterface_ListHotelGuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListHotelGuestResponse" />
+  </wsdl:message>
   <wsdl:portType name="HotelServisInterface">
     <wsdl:operation name="GetReservations">
       <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/GetReservations" message="tns:HotelServisInterface_GetReservations_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/GetReservationsResponse" message="tns:HotelServisInterface_GetReservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListHotelGuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/ListHotelGuest" message="tns:HotelServisInterface_ListHotelGuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/ListHotelGuestResponse" message="tns:HotelServisInterface_ListHotelGuest_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_HotelServisInterface" type="tns:HotelServisInterface">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetReservations">
       <soap:operation soapAction="http://tempuri.org/HotelServisInterface/GetReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListHotelGuest">
+      <soap:operation soapAction="http://tempuri.org/HotelServisInterface/ListHotelGuest" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

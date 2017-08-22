@@ -20,6 +20,12 @@ namespace HotelManagment.HotelServiceFinal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/GetReservations", ReplyAction="http://tempuri.org/HotelServisInterface/GetReservationsResponse")]
         System.Threading.Tasks.Task<HotelService.Model.HotelReservation[]> GetReservationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/ListHotelGuest", ReplyAction="http://tempuri.org/HotelServisInterface/ListHotelGuestResponse")]
+        HotelService.Model.HotelUser[] ListHotelGuest();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/ListHotelGuest", ReplyAction="http://tempuri.org/HotelServisInterface/ListHotelGuestResponse")]
+        System.Threading.Tasks.Task<HotelService.Model.HotelUser[]> ListHotelGuestAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace HotelManagment.HotelServiceFinal {
         
         public System.Threading.Tasks.Task<HotelService.Model.HotelReservation[]> GetReservationsAsync() {
             return base.Channel.GetReservationsAsync();
+        }
+        
+        public HotelService.Model.HotelUser[] ListHotelGuest() {
+            return base.Channel.ListHotelGuest();
+        }
+        
+        public System.Threading.Tasks.Task<HotelService.Model.HotelUser[]> ListHotelGuestAsync() {
+            return base.Channel.ListHotelGuestAsync();
         }
     }
 }

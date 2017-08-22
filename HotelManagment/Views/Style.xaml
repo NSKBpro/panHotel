@@ -98,7 +98,7 @@
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
         <Setter Property="Foreground" Value="#FFEEEEEE" />
-        <Setter Property="TextElement.Foreground" Value="Black"/>
+        <Setter Property="TextElement.Foreground" Value="#e3e9ef"/>
         
         <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Control.Template">

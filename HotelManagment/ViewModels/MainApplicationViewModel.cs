@@ -12,10 +12,14 @@ namespace HotelManagment.ViewModels
     class MainApplicationViewModel : INotifyPropertyChanged
     {
 
-        HotelReservation reservation = new HotelReservation();
+     
         HotelServiceFinal.HotelServisInterfaceClient hotelService = new HotelServiceFinal.HotelServisInterfaceClient();
 
         ObservableCollection<HotelReservation> listOfReservations;
+        ObservableCollection<HotelUser> listOfUsers;
+
+        HotelReservation reservation = new HotelReservation();
+        HotelUser cmbHotelUser = new HotelUser();
        
         public HotelReservation SelectedReservation
         {
@@ -42,6 +46,34 @@ namespace HotelManagment.ViewModels
             { 
                 listOfReservations = value;
                 NotifyPropertyChanged("LoadReservations");
+            }
+        }
+
+        public ObservableCollection<HotelUser> ListGuests
+        {
+            get
+            {
+                listOfUsers = new ObservableCollection<HotelUser>(hotelService.ListHotelGuest());
+                return listOfUsers;
+
+            }
+            set
+            {
+                listOfUsers = value;
+                NotifyPropertyChanged("ListGuests");
+            }
+        }
+
+        public HotelUser SelectedHotelUser 
+        {
+            get
+            {
+                return cmbHotelUser;
+            }
+            set
+            {
+                cmbHotelUser = value;
+                NotifyPropertyChanged("SelectedHotelUser");
             }
         }
 
