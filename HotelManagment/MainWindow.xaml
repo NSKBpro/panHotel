@@ -8,12 +8,12 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Views/Style.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <local:ClockViewModel x:Key="ClockViewModel"/>
+            <local:ParentViewModel x:Key="ParentViewModel"/>
         </ResourceDictionary>
 
     </Window.Resources>
 
-    <Grid DataContext="{StaticResource ClockViewModel}">
+    <Grid DataContext="{StaticResource ParentViewModel}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
@@ -70,8 +70,8 @@
                 </Border>
             </StackPanel>
             <StackPanel  Margin="5,0,8,3"  DockPanel.Dock="Right" HorizontalAlignment="Right">
-                <TextBlock  Style="{StaticResource HeaderTextStyle}"   TextAlignment="Right" Text="{Binding Time}"/>
-                <TextBlock  Style="{StaticResource SubHeaderTextStyle}" TextAlignment="Right" Text="{Binding Date}"/>
+                <TextBlock  Style="{StaticResource HeaderTextStyle}"   TextAlignment="Right" Text="{Binding ClockViewModel.Time}"/>
+                <TextBlock  Style="{StaticResource SubHeaderTextStyle}" TextAlignment="Right" Text="{Binding ClockViewModel.Date}"/>
 
             </StackPanel>
 
@@ -168,18 +168,22 @@
             <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" HorizontalAlignment="Left" Margin="756,3,0,0" TextWrapping="Wrap" Text="Date of Reservation" VerticalAlignment="Top" RenderTransformOrigin="2.14,0.063"/>
             <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="23" Margin="528,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="55" RenderTransformOrigin="1,0.522"/>
             <TextBlock HorizontalAlignment="Left" Margin="518,28,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top"/>
-            <DataGrid Style="{StaticResource DataGridRowStyle}" HorizontalAlignment="Left" Margin="0,40,0,0" Grid.Row="1" Height="Auto" Width="967">
+            <DataGrid HeadersVisibility="Column" ColumnWidth="*" FlowDirection="LeftToRight" 
+          CanUserAddRows="False" CanUserReorderColumns="False" Style="{StaticResource DataGridRowStyle}"  SelectedItem="{Binding MainApplicationViewModel.SelectedReservation}" HorizontalAlignment="Left" ItemsSource="{Binding MainApplicationViewModel.LoadReservations}" Margin="0,40,0,0" Grid.Row="1" Height="Auto" Width="967" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Reservation ID"   Width="0.1*" />
-                    <DataGridTextColumn Header="Room Number"   Width="0.15*"/>
-                    <DataGridTextColumn Header="Start Date"   Width="0.15*"/>
-                    <DataGridTextColumn Header="End Date"   Width="0.15*"/>
-                    <DataGridTextColumn Header="Guest Name"   Width="0.15*"/>
-                    <DataGridTextColumn Header="Guest email"   Width="0.15*"/>
-                    <DataGridTextColumn Header="Guest email"   Width="0.15*"/>
+                    <DataGridTextColumn Header="Reservation ID" Binding="{Binding ReservationId}"  Width="0.05*" />
+                    <DataGridTextColumn Header="Number"  Binding="{Binding Room.RoomNumber}"  Width="0.05*"/>
+                    <DataGridTextColumn Header="Floor"  Binding="{Binding Room.RoomFloor}"  Width="0.05*"/>
+                    <DataGridTextColumn Header="Start Date"    Binding="{Binding DateCheckIN}" Width="0.2*"/>
+                    <DataGridTextColumn Header="End Date"   Binding="{Binding DateCheckOUT}" Width="0.2*"/>
+                    <DataGridTextColumn Header="Guest Name"   Binding="{Binding User.Name}" Width="0.1*"/>
+                    <DataGridTextColumn Header="Guest Email"   Binding="{Binding User.Email}" Width="0.2*"/>
+                    <DataGridTextColumn Header="Guest Phone"   Binding="{Binding User.Number}" Width="0.1*"/>
+                    <DataGridTextColumn Header="Price"   Binding="{Binding Price}" Width="0.1*"/>
+                    
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBlock Style="{StaticResource SubHeaderTextStyle}" Text="Reservation" HorizontalAlignment="Left" Margin="10,8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="-0.987,0"/>
+            <TextBlock Style="{StaticResource SubHeaderTextStyle}" Text="Reservation" HorizontalAlignment="Left" Margin="0,8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="-0.987,0"/>
             <Button  Style="{StaticResource Button2Style}" Width="200" Height="40" VerticalAlignment="Top"   Margin="0,5,777,0" Grid.Row="2">
                 <StackPanel>
                     

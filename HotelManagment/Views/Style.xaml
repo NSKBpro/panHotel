@@ -52,6 +52,8 @@
     <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="#888" />
     <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="#eee" />
     <SolidColorBrush x:Key="ComboBoxDisabledBorderBrush" Color="#888" />
+    <SolidColorBrush x:Key="GotFocusColor" Color="#FF262626" />
+    <SolidColorBrush x:Key="LostFocusColor" Color="#FF3A3A3A" />
 
     <ControlTemplate TargetType="ToggleButton" x:Key="ComboBoxToggleButtonTemplate">
         <Grid>
@@ -193,11 +195,10 @@
 
 
     </Style>
-    <SolidColorBrush x:Key="GotFocusColor" Color="Green" />
-    <SolidColorBrush x:Key="LostFocusColor" Color="Transparent" />
+   
 
     <Style  x:Key="DataGridRowStyle"  TargetType="{x:Type DataGrid}">
-        <Setter Property="Foreground" Value="white"/>
+        <Setter Property="Foreground" Value="#FFEEEEEE"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -236,14 +237,18 @@
             </EventTrigger>
         </Style.Triggers>
     </Style>
-
+    
+    <Style    TargetType="{x:Type DataGridRow}">
+        <Setter Property="Background" Value="Gray"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
 
     <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Background" Value="LimeGreen" />
         <Setter Property="Height" Value="30"/>
-        <Setter Property="HorizontalContentAlignment"   Value="Center" />
-
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
     </Style>
+  
 
     <Style x:Key="Button1Style" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="#373737" />
