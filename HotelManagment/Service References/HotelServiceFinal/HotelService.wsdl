@@ -25,6 +25,12 @@
   <wsdl:message name="HotelServisInterface_ListHotelRooms_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListHotelRoomsResponse" />
   </wsdl:message>
+  <wsdl:message name="HotelServisInterface_CheckLoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLoginUser" />
+  </wsdl:message>
+  <wsdl:message name="HotelServisInterface_CheckLoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLoginUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="HotelServisInterface">
     <wsdl:operation name="GetReservations">
       <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/GetReservations" message="tns:HotelServisInterface_GetReservations_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="ListHotelRooms">
       <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/ListHotelRooms" message="tns:HotelServisInterface_ListHotelRooms_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/ListHotelRoomsResponse" message="tns:HotelServisInterface_ListHotelRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/CheckLoginUser" message="tns:HotelServisInterface_CheckLoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/CheckLoginUserResponse" message="tns:HotelServisInterface_CheckLoginUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_HotelServisInterface" type="tns:HotelServisInterface">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="ListHotelRooms">
       <soap:operation soapAction="http://tempuri.org/HotelServisInterface/ListHotelRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginUser">
+      <soap:operation soapAction="http://tempuri.org/HotelServisInterface/CheckLoginUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

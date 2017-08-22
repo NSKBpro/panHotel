@@ -32,6 +32,12 @@ namespace HotelManagment.HotelServiceFinal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/ListHotelRooms", ReplyAction="http://tempuri.org/HotelServisInterface/ListHotelRoomsResponse")]
         System.Threading.Tasks.Task<HotelService.Model.HotelRoom[]> ListHotelRoomsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/CheckLoginUser", ReplyAction="http://tempuri.org/HotelServisInterface/CheckLoginUserResponse")]
+        HotelService.Model.HotelUser CheckLoginUser(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/CheckLoginUser", ReplyAction="http://tempuri.org/HotelServisInterface/CheckLoginUserResponse")]
+        System.Threading.Tasks.Task<HotelService.Model.HotelUser> CheckLoginUserAsync(string username, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -83,6 +89,14 @@ namespace HotelManagment.HotelServiceFinal {
         
         public System.Threading.Tasks.Task<HotelService.Model.HotelRoom[]> ListHotelRoomsAsync() {
             return base.Channel.ListHotelRoomsAsync();
+        }
+        
+        public HotelService.Model.HotelUser CheckLoginUser(string username, string password) {
+            return base.Channel.CheckLoginUser(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<HotelService.Model.HotelUser> CheckLoginUserAsync(string username, string password) {
+            return base.Channel.CheckLoginUserAsync(username, password);
         }
     }
 }

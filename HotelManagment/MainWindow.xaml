@@ -6,7 +6,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Views/Style.xaml" />
+                <ResourceDictionary Source="Style/Style.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <local:ParentViewModel x:Key="ParentViewModel"/>
         </ResourceDictionary>

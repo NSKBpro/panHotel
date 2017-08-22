@@ -102,5 +102,20 @@ namespace HotelService
             }
             return hotelRooms;
         }
+
+
+
+
+        public HotelUser CheckLoginUser(string username,string password)
+        {
+            foreach (User userDatabase in db.User)
+            {
+                if (userDatabase.Username.Trim() == username && userDatabase.Password.Trim() == password)
+                {
+                    return MapperObjectClass.SwapUser(userDatabase);
+                }
+            }
+            return null;
+        }
     }
 }

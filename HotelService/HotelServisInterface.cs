@@ -20,6 +20,9 @@ namespace HotelService
         ObservableCollection<HotelUser> ListHotelGuest();
         [OperationContract]
         ObservableCollection<HotelRoom> ListHotelRooms();
+
+        [OperationContract]
+        HotelUser CheckLoginUser(string username,string password);
     }
 
 
