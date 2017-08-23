@@ -57,6 +57,24 @@ namespace HotelService.Model
             this.Role = role;
         }
 
+        public HotelUser(string username, string password, string name, string surname, string uniqueID, string adress, string sex,
+          DateTime dateOfBird, string email, string state, string number, int postCode, string role)
+        {
+            this.Username = username;
+            this.Password = password;
+            this.Name = name;
+            this.Surname = surname;
+            this.UniqueID = uniqueID;
+            this.Adress = adress;
+            this.Sex = sex;
+            this.DateOfBird = dateOfBird;
+            this.Email = email;
+            this.State = state;
+            this.Number = number;
+            this.PostCode = postCode;
+            this.Role = role;
+        }
+
         public HotelUser()
         {
 

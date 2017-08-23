@@ -1,0 +1,114 @@
+﻿<Window x:Class="HotelManagment.Views.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:HotelManagment.ViewModels" 
+         xmlns:l="clr-namespace:HotelManagment.Commands.Convertors"
+         Background="Gray" WindowStartupLocation="CenterScreen" Icon="/Images/tardis.png"
+        Title="RegistrationWindow" Height="740" Width="350">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Style/RegistrationStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:ParentViewModel x:Key="ParentViewModel"/>
+            <l:RegistrationConvertor x:Key="converter" />
+        </ResourceDictionary>
+
+    </Window.Resources>
+    <Border Background="#2e3137" CornerRadius="25" Margin="10">
+
+        <StackPanel DataContext="{StaticResource ParentViewModel}" >
+            <Border Background="LimeGreen"  CornerRadius="25 25 0 0">
+                <DockPanel Width="320" >
+                    <Label Margin="5" Content="Registration" Foreground="White" FontSize="25" HorizontalAlignment="Left"/>
+                    <Image Margin="5 5 10 5" Source="/Images/usersLogin.png" HorizontalAlignment="Right" Height="50" Width="50"/>
+                </DockPanel>
+            </Border>
+            <Separator></Separator>
+            <TextBlock Style="{StaticResource BaseTextStyle}" Text="Username" Foreground="White" Margin="0 0 0 5"/>
+            <TextBox Height="27"  Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0"/>
+            <DockPanel Height="60">
+                <StackPanel HorizontalAlignment="Left" Width="150">
+                    <TextBlock Style="{StaticResource BaseTextStyle}" Text="Password" Margin="0 0 0 5" Foreground="White"/>
+                    <PasswordBox x:Name="txtPassword"  Background="#545d6a" Height="27" Foreground="White" FontSize="18" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Width="150">
+                    <TextBlock Style="{StaticResource BaseTextStyle}" Text="Repeat Password" Margin="0 0 0 5" Foreground="White"/>
+                    <PasswordBox x:Name="txtPassword2" Height="27" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,10,0"/>
+                </StackPanel>
+            </DockPanel>
+            <DockPanel Height="57">
+                <StackPanel HorizontalAlignment="Left" Width="150">
+                    <TextBlock Style="{StaticResource BaseTextStyle}" Text="Name" Foreground="White" Margin="0 0 0 5"/>
+                    <TextBox Height="27" Name="txtName" Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Width="150">
+                    <TextBlock Style="{StaticResource BaseTextStyle}" Text="Surname" Foreground="White" Margin="0 0 0 5"/>
+                    <TextBox Height="27"  x:Name="txtSurname" Background="#545d6a" Foreground="White" FontSize="18" Margin="0,0,10,0"/>
+                </StackPanel>
+            </DockPanel>
+            <TextBlock Style="{StaticResource BaseTextStyle}" Text="UniqueID" Foreground="White" Margin="0 0 0 5"/>
+            <TextBox Height="27" Name="txtUniqueID" Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0"/>
+            <TextBlock Style="{StaticResource BaseTextStyle}" Text="Adress" Foreground="White" Margin="0 0 0 5"/>
+            <TextBox Height="27" Name="txtAdress" Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0"/>
+            <TextBlock Style="{StaticResource BaseTextStyle}" Text="Gender" Foreground="White" Margin="0 2 0 5"/>
+            <DockPanel Name="genderPanel" Height="37">
+                <RadioButton  Style="{StaticResource RadioButtonStyle}" FontSize="14" GroupName="Gendre" Margin="100 10 10 10" Content="Male" HorizontalAlignment="Left" IsChecked="True"/>
+                <RadioButton  Style="{StaticResource RadioButtonStyle}" FontSize="14" GroupName="Gendre" Margin="10 10 90 10" Content="Female" HorizontalAlignment="Right" />
+            </DockPanel>
+            <TextBlock Style="{StaticResource BaseTextStyle}" Text="Bird date" Foreground="White" Margin="0 0 0 5"/>
+            <DatePicker Style="{StaticResource DatePickerStyle}" Name="datePicker" Margin="10,0"/>
+           
+            <DockPanel Height="63">
+                <StackPanel HorizontalAlignment="Left" Width="160" Margin="0">
+                    <TextBlock Style="{StaticResource BaseTextStyle}" Text="State" Foreground="White" Margin="0 0 0 2"/>
+                    <TextBox Height="27"  Name="txtState" Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Width="160">
+                    <TextBlock Style="{StaticResource BaseTextStyle}" Text="Postcode" Foreground="White" Margin="0 0 0 2"/>
+                    <TextBox Height="27" Name="txtPostCode" Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0"/>
+                </StackPanel>
+            </DockPanel>
+            <DockPanel Height="55">
+                <StackPanel HorizontalAlignment="Left" Width="160">
+                    <TextBlock Style="{StaticResource BaseTextStyle}" Text="Number" Foreground="White" Margin="0 0 0 2"/>
+                    <TextBox Height="27" Name="txtNumber" Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0"/>    
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Width="160">
+                    <TextBlock Style="{StaticResource BaseTextStyle}" Text="Email" Foreground="White" Margin="0 0 0 2"/>
+                    <TextBox Height="27" Name="txtEmail" Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0"/>
+                </StackPanel>
+            </DockPanel>
+            <DockPanel Height="60" Margin="5 2 0 0 ">
+
+                <Image Source="/Images/registration.png" Height="55" />
+            </DockPanel>
+            <DockPanel >
+
+                <Button Command="{Binding RegistrationViewModel.RegistrationUserCommand}" Name="btnRegistration" HorizontalAlignment="Left" Content="Registration" Margin="12 3 12 5" Background="LimeGreen" Foreground="#2e3137" FontSize="18" Width="296" Height="34">
+
+                    <Button.CommandParameter>
+                        <MultiBinding Converter="{StaticResource converter}">
+                            <Binding ElementName="txtUsername"></Binding>
+                            <Binding ElementName="txtPassword"></Binding>
+                            <Binding ElementName="txtPassword2"></Binding>
+                            <Binding ElementName="txtName"></Binding>
+                            <Binding ElementName="txtSurname"></Binding>
+                            <Binding ElementName="txtUniqueID"></Binding>
+                            <Binding ElementName="txtAdress"></Binding>
+                            <Binding ElementName="genderPanel"></Binding>
+                            <Binding ElementName="datePicker"></Binding>
+                            <Binding ElementName="txtState"></Binding>
+                            <Binding ElementName="txtPostCode"></Binding>
+                            <Binding ElementName="txtNumber"></Binding>
+                            <Binding ElementName="txtEmail"></Binding>
+                        </MultiBinding>
+                    </Button.CommandParameter>
+                </Button>
+              
+            </DockPanel>
+
+
+        </StackPanel>
+    </Border>
+</Window>

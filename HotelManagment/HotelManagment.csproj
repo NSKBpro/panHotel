@@ -56,8 +56,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\Convertors\LoginConvertor.cs" />
+    <Compile Include="Commands\Convertors\RegistrationConvertor.cs" />
     <Compile Include="Commands\LoginCommands\LoginCommand.cs" />
+    <Compile Include="Commands\LoginCommands\RegistrationCommand.cs" />
     <Compile Include="Commands\MainWindowCommand\LogoutCommand.cs" />
+    <Compile Include="Commands\RegistrationCommands\RegistrationCommand.cs" />
     <Compile Include="Service References\HotelServiceFinal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,8 +70,12 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainApplicationViewModel.cs" />
     <Compile Include="ViewModels\ParentViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistrationWindow.xaml.cs">
+      <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,11 +93,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Style\RegistrationStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +188,9 @@
     <None Include="Service References\HotelServiceFinal\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\HotelServiceFinal\HotelService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\HotelServiceFinal\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -184,7 +202,9 @@
   <ItemGroup>
     <Resource Include="Images\usersLogin.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\registration.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

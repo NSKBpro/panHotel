@@ -17,12 +17,14 @@ namespace HotelManagment.ViewModels
             ClockViewModel = new ClockViewModel();
             MainApplicationViewModel = new MainApplicationViewModel();
             LoginViewModel = new LoginViewModel();
+            RegistrationViewModel = new RegistrationViewModel();
         }
 
 
         public ClockViewModel ClockViewModel { get; set; }
         public MainApplicationViewModel MainApplicationViewModel { get; set; }
         public LoginViewModel LoginViewModel { get; set; }
+        public RegistrationViewModel RegistrationViewModel {get ;set;}
 
 
 

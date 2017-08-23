@@ -46,5 +46,26 @@ namespace HotelService.Model
                                 databaseUser.PostCode,
                                 databaseUser.Role);
         }
+
+        public static User SwapHotelUser(HotelUser user)
+        {
+            User swapedUser = new User();
+
+            swapedUser.Username = user.Username;
+            swapedUser.Password = user.Password;
+            swapedUser.Name = user.Name;
+            swapedUser.Surname = user.Surname;
+            swapedUser.Adress = user.Adress;
+            swapedUser.UniqueID = user.UniqueID;
+            swapedUser.Sex = user.Sex;
+            swapedUser.DateOfBird = user.DateOfBird;
+            swapedUser.Email = user.Email;
+            swapedUser.State = user.State;
+            swapedUser.Number = user.Number;
+            swapedUser.PostCode = user.PostCode;
+            swapedUser.Role = "guest";
+
+            return swapedUser;
+        }
     }
 }

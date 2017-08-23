@@ -23,6 +23,9 @@ namespace HotelService
 
         [OperationContract]
         HotelUser CheckLoginUser(string username,string password);
+
+        [OperationContract]
+        bool RegistrationUser(User userFromRegistration);
     }
 
 

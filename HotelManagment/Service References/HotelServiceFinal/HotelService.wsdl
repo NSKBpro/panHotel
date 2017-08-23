@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:54091/HotelService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:54091/HotelService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:54091/HotelService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HotelService.Model" />
+      <xsd:import schemaLocation="http://localhost:54091/HotelService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HotelService" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="HotelServisInterface_GetReservations_InputMessage">
@@ -31,6 +32,12 @@
   <wsdl:message name="HotelServisInterface_CheckLoginUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckLoginUserResponse" />
   </wsdl:message>
+  <wsdl:message name="HotelServisInterface_RegistrationUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrationUser" />
+  </wsdl:message>
+  <wsdl:message name="HotelServisInterface_RegistrationUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrationUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="HotelServisInterface">
     <wsdl:operation name="GetReservations">
       <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/GetReservations" message="tns:HotelServisInterface_GetReservations_InputMessage" />
@@ -47,6 +54,10 @@
     <wsdl:operation name="CheckLoginUser">
       <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/CheckLoginUser" message="tns:HotelServisInterface_CheckLoginUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/CheckLoginUserResponse" message="tns:HotelServisInterface_CheckLoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrationUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/RegistrationUser" message="tns:HotelServisInterface_RegistrationUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/RegistrationUserResponse" message="tns:HotelServisInterface_RegistrationUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_HotelServisInterface" type="tns:HotelServisInterface">
@@ -80,6 +91,15 @@
     </wsdl:operation>
     <wsdl:operation name="CheckLoginUser">
       <soap:operation soapAction="http://tempuri.org/HotelServisInterface/CheckLoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrationUser">
+      <soap:operation soapAction="http://tempuri.org/HotelServisInterface/RegistrationUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

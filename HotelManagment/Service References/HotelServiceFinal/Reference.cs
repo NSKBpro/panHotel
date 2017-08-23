@@ -38,6 +38,12 @@ namespace HotelManagment.HotelServiceFinal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/CheckLoginUser", ReplyAction="http://tempuri.org/HotelServisInterface/CheckLoginUserResponse")]
         System.Threading.Tasks.Task<HotelService.Model.HotelUser> CheckLoginUserAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/RegistrationUser", ReplyAction="http://tempuri.org/HotelServisInterface/RegistrationUserResponse")]
+        bool RegistrationUser(HotelService.User userFromRegistration);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/RegistrationUser", ReplyAction="http://tempuri.org/HotelServisInterface/RegistrationUserResponse")]
+        System.Threading.Tasks.Task<bool> RegistrationUserAsync(HotelService.User userFromRegistration);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +103,14 @@ namespace HotelManagment.HotelServiceFinal {
         
         public System.Threading.Tasks.Task<HotelService.Model.HotelUser> CheckLoginUserAsync(string username, string password) {
             return base.Channel.CheckLoginUserAsync(username, password);
+        }
+        
+        public bool RegistrationUser(HotelService.User userFromRegistration) {
+            return base.Channel.RegistrationUser(userFromRegistration);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegistrationUserAsync(HotelService.User userFromRegistration) {
+            return base.Channel.RegistrationUserAsync(userFromRegistration);
         }
     }
 }

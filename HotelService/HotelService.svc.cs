@@ -117,5 +117,15 @@ namespace HotelService
             }
             return null;
         }
+
+
+
+
+        public bool RegistrationUser(User userFromRegistration)
+        {
+            db.User.Add(userFromRegistration);
+            db.SaveChanges();
+            return true;
+        }
     }
 }

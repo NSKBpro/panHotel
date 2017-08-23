@@ -1,10 +1,12 @@
 ﻿using HotelManagment.Commands.LoginCommands;
+using HotelManagment.Views;
 using HotelService.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -17,11 +19,14 @@ namespace HotelManagment.ViewModels
         HotelServiceFinal.HotelServisInterfaceClient hotelService = new HotelServiceFinal.HotelServisInterfaceClient();
          static  HotelUser loginUser;
         ICommand loginCommand;
+        ICommand registrationCommand;
+
         string username, password;
 
         public LoginViewModel()
         {
             loginCommand = new LoginCommand(this);
+            registrationCommand = new RegistrationCommand(this);
         }
 
 
@@ -53,11 +58,19 @@ namespace HotelManagment.ViewModels
             }
         }
 
-       public ICommand LoginCommand
+        public ICommand LoginCommand
         {
             get
             {
                 return loginCommand;
+            }
+
+        }
+        public ICommand RegistrationCommand
+         {
+            get
+            {
+                return registrationCommand;
             }
         }
 
@@ -78,6 +91,7 @@ namespace HotelManagment.ViewModels
 
         public bool LoginUser(string username,string password)
         {
+            
             UserLogin = hotelService.CheckLoginUser(username, password);
             if (UserLogin != null)
             {
@@ -92,11 +106,14 @@ namespace HotelManagment.ViewModels
                 MessageBox.Show("Wrong login!");
                 return false;
             }
-          
-          
-            
         }
 
+        public void RegistrationUser()
+        {
+            RegistrationWindow rf = new RegistrationWindow();
+            rf.Show();
+            Application.Current.MainWindow.Close();
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
