@@ -2,11 +2,15 @@
 
 
 
+using HotelManagment.Commands.MainWindowCommand;
+using HotelManagment.Views;
 using HotelService;
 using HotelService.Model;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
+using System.Windows.Input;
 namespace HotelManagment.ViewModels
 {
     class MainApplicationViewModel : INotifyPropertyChanged
@@ -22,6 +26,13 @@ namespace HotelManagment.ViewModels
         HotelReservation reservation = new HotelReservation();
         HotelUser cmbHotelUser = new HotelUser();
         HotelRoom cmbHotelRoom = new HotelRoom();
+
+        ICommand logoutCommand;
+
+        public MainApplicationViewModel()
+        {
+            logoutCommand = new LogoutCommand(this);
+        }
        
         public HotelReservation SelectedReservation
         {
@@ -104,6 +115,25 @@ namespace HotelManagment.ViewModels
                 cmbHotelRoom = value;
                 NotifyPropertyChanged("SelectedHotelRoom");
             }
+        }
+
+
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                return logoutCommand;
+            }
+        }
+
+
+
+        public void LogoutUser()
+        {
+           
+            Login loginWindow = new Login();
+            loginWindow.Show();
+            Application.Current.Windows[0].Close();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

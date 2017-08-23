@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:HotelManagment.ViewModels" 
         xmlns:l="clr-namespace:HotelManagment.Commands.Convertors"
-         Title="Login" Height="350" Width="400"  Background="Gray" ResizeMode="NoResize">
+         Title="Login" Height="350" Width="400"  Background="Gray" WindowStartupLocation="CenterScreen" Icon="/Images/tardis.png" ResizeMode="NoResize">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -35,7 +35,8 @@
             </DockPanel>
             <DockPanel >
 
-                <Button Name="btnLogin" Command="{Binding LoginViewModel.LoginCommand}" HorizontalAlignment="Left" Content="Login" Margin="15 10 10 5" Background="LimeGreen" Foreground="#2e3137" FontSize="18" Width="135" Height="34">
+                <Button Command="{Binding LoginViewModel.LoginCommand}" Name="btnLogin" HorizontalAlignment="Left" Content="Login" Margin="15 10 10 5" Background="LimeGreen" Foreground="#2e3137" FontSize="18" Width="135" Height="34">
+                    
                     <Button.CommandParameter>
                         <MultiBinding Converter="{StaticResource converter}">
                             <Binding ElementName="txtUsername"></Binding>

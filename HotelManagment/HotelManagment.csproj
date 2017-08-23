@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\Convertors\LoginConvertor.cs" />
     <Compile Include="Commands\LoginCommands\LoginCommand.cs" />
+    <Compile Include="Commands\MainWindowCommand\LogoutCommand.cs" />
     <Compile Include="Service References\HotelServiceFinal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,6 +184,7 @@
   <ItemGroup>
     <Resource Include="Images\usersLogin.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

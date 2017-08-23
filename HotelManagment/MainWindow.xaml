@@ -200,13 +200,16 @@
                     <TextBlock Text="Delete Reservation" FontSize="14" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource Button1Style}"  Width="200" Height="40" VerticalAlignment="Top"   Margin="767,5,10,0" Grid.Row="2">
+            <Button Command="{Binding MainApplicationViewModel.LogoutCommand}" Style="{StaticResource Button1Style}"  Width="200" Height="40" VerticalAlignment="Top"   Margin="767,5,10,0" Grid.Row="2">
                 <StackPanel>
                     <TextBlock Text="Logout" FontSize="14" />
                 </StackPanel>
             </Button>
           
         </Grid>
+        <DockPanel Background="#373737" Width="200"  Grid.Row="2">
+        <TextBlock Margin="15 8 10 10" Style="{StaticResource SubSubHeaderTextStyle}" Text="{Binding LoginViewModel.UserLogin.Username, StringFormat=Welcome back {0}}"  HorizontalAlignment="Left"  VerticalAlignment="Top" RenderTransformOrigin="-3.895,0.577"/>
+        </DockPanel>
     </Grid>
 
 </Window>

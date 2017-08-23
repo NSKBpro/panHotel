@@ -15,7 +15,7 @@ namespace HotelManagment.ViewModels
     {
 
         HotelServiceFinal.HotelServisInterfaceClient hotelService = new HotelServiceFinal.HotelServisInterfaceClient();
-        HotelUser loginUser;
+         static  HotelUser loginUser;
         ICommand loginCommand;
         string username, password;
 
@@ -78,8 +78,8 @@ namespace HotelManagment.ViewModels
 
         public bool LoginUser(string username,string password)
         {
-            loginUser = hotelService.CheckLoginUser(username, password);
-            if (loginUser != null)
+            UserLogin = hotelService.CheckLoginUser(username, password);
+            if (UserLogin != null)
             {
                
                 MainWindow mw = new MainWindow();
