@@ -1,4 +1,5 @@
 ﻿using HotelManagment.Commands.LoginCommands;
+using HotelService.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace HotelManagment.ViewModels
     {
 
         HotelServiceFinal.HotelServisInterfaceClient hotelService = new HotelServiceFinal.HotelServisInterfaceClient();
+        HotelUser loginUser;
         ICommand loginCommand;
         string username, password;
 
@@ -59,20 +61,40 @@ namespace HotelManagment.ViewModels
             }
         }
 
+       public HotelUser UserLogin
+       {
+           get
+           {
+               return loginUser;
+           }
+
+           set
+           {
+               loginUser = value;
+               NotifyPropertyChanged("UserLogin");
+           }
+       }
+
 
         public bool LoginUser(string username,string password)
         {
-            if(hotelService.CheckLoginUser(username,password) != null){
+            loginUser = hotelService.CheckLoginUser(username, password);
+            if (loginUser != null)
+            {
+               
                 MainWindow mw = new MainWindow();
                 mw.Show();
+                Application.Current.MainWindow.Close();
+                return true;
             }
             else
             {
                 MessageBox.Show("Wrong login!");
+                return false;
             }
           
-            //MessageBox.Show(username+password);
-            return false;
+          
+            
         }
 
 

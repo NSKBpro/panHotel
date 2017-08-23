@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:HotelManagment.ViewModels" 
         xmlns:l="clr-namespace:HotelManagment.Commands.Convertors"
-         Title="Login" Height="320" Width="400"  Background="Gray" ResizeMode="NoResize">
+         Title="Login" Height="350" Width="400"  Background="Gray" ResizeMode="NoResize">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -20,7 +20,8 @@
         <StackPanel DataContext="{StaticResource ParentViewModel}" >
             <Border Background="LimeGreen"  CornerRadius="25 25 0 0">
                 <DockPanel Width="320" >
-                    <Label Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+                    <Label Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Left"/>
+                    <Image Source="/Images/usersLogin.png" HorizontalAlignment="Right" Height="50" Width="50"/>
                 </DockPanel>
             </Border>
             <Separator></Separator>
@@ -28,9 +29,13 @@
             <TextBox Text="{Binding LoginViewModel.Username}" Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0"/>
             <TextBlock Style="{StaticResource BaseTextStyle}" Text="Password" Margin="0 0 0 5" Foreground="White"/>
             <PasswordBox x:Name="txtPassword"  Background="#545d6a" Foreground="White" FontSize="18" Margin="10,0"/>
-            <DockPanel Margin="0 20 0 0">
+            <DockPanel Height="60" Margin="0 5 0 0 ">
 
-                <Button Name="btnLogin" Command="{Binding LoginViewModel.LoginCommand}" HorizontalAlignment="Left" Content="Login" Margin="20 20 20 15" Background="LimeGreen" Foreground="#2e3137" FontSize="18" Width="135" Height="34">
+                <Image Source="/Images/keyLogin.png" Height="55" />
+            </DockPanel>
+            <DockPanel >
+
+                <Button Name="btnLogin" Command="{Binding LoginViewModel.LoginCommand}" HorizontalAlignment="Left" Content="Login" Margin="15 10 10 5" Background="LimeGreen" Foreground="#2e3137" FontSize="18" Width="135" Height="34">
                     <Button.CommandParameter>
                         <MultiBinding Converter="{StaticResource converter}">
                             <Binding ElementName="txtUsername"></Binding>
@@ -38,8 +43,10 @@
                         </MultiBinding>
                     </Button.CommandParameter>
                 </Button>
-                <Button x:Name="btnRegistration"   Command="{Binding LoginViewModel.LoginCommand}" HorizontalAlignment="Right" Content="Registration" Margin="20 20 20 15" Background="LimeGreen" Foreground="#2e3137" FontSize="18" Width="135"/>
+                <Button x:Name="btnRegistration"   Command="{Binding LoginViewModel.LoginCommand}" HorizontalAlignment="Right" Content="Registration" Margin="15 10 10 5" Background="LimeGreen" Foreground="#2e3137" FontSize="18" Width="135"/>
             </DockPanel>
+            
+            
         </StackPanel>
     </Border>
 </Window>
