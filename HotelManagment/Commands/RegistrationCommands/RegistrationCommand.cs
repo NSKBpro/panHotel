@@ -20,7 +20,15 @@ namespace HotelManagment.Commands.RegistrationCommands
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            if (parameter != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+          
         }
 
         public event EventHandler CanExecuteChanged;

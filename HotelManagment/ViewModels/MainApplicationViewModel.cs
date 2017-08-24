@@ -32,6 +32,7 @@ namespace HotelManagment.ViewModels
 
         public MainApplicationViewModel()
         {
+            RefreshGrid();
             logoutCommand = new LogoutCommand(this);
             deleteCommand = new DeleteCommand(this);
         }
@@ -53,7 +54,7 @@ namespace HotelManagment.ViewModels
         {
             get 
             {
-                listOfReservations = new ObservableCollection<HotelReservation>(hotelService.GetReservations());
+                //listOfReservations = new ObservableCollection<HotelReservation>(hotelService.GetReservations());
                 return listOfReservations;
             }
 
@@ -122,7 +123,9 @@ namespace HotelManagment.ViewModels
         public void DeleteReservation(HotelReservation reservationDelete)
         {
             hotelService.DeleteReservation(MapperObjectClass.SwapHotelReservation(reservationDelete));
-            MessageBox.Show("Delete successuful!");
+            //MessageBox.Show("Delete successuful!");
+            //listOfReservations.Remove(reservationDelete);
+           RefreshGrid();
 
         }
 
@@ -160,6 +163,27 @@ namespace HotelManagment.ViewModels
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public void RefreshGrid()
+        {
+            if (listOfReservations != null)
+            {
+                listOfReservations.Clear();
+                  foreach (HotelReservation hr in new ObservableCollection<HotelReservation>(hotelService.GetReservations()))
+                    {
+                        listOfReservations.Add(hr);
+                    }
+            }
+            else
+            {
+                listOfReservations = new ObservableCollection<HotelReservation>(hotelService.GetReservations());
+
+            }
+           // listOfReservations = null;
+          
+            
+          
+            
+        }
       
     }
 }
