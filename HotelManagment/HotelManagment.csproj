@@ -59,6 +59,7 @@
     <Compile Include="Commands\Convertors\RegistrationConvertor.cs" />
     <Compile Include="Commands\LoginCommands\LoginCommand.cs" />
     <Compile Include="Commands\LoginCommands\RegistrationCommand.cs" />
+    <Compile Include="Commands\MainWindowCommand\DeleteCommand.cs" />
     <Compile Include="Commands\MainWindowCommand\LogoutCommand.cs" />
     <Compile Include="Commands\RegistrationCommands\RegistrationCommand.cs" />
     <Compile Include="Service References\HotelServiceFinal\Reference.cs">

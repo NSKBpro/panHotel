@@ -127,5 +127,14 @@ namespace HotelService
             db.SaveChanges();
             return true;
         }
+
+
+        public bool DeleteReservation(Reservation reservationDelete)
+        {
+            db.Reservation.Attach(reservationDelete);
+            db.Reservation.Remove(reservationDelete);
+            db.SaveChanges();
+            return true;
+        }
     }
 }

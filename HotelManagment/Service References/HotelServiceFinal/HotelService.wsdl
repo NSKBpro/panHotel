@@ -38,6 +38,12 @@
   <wsdl:message name="HotelServisInterface_RegistrationUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegistrationUserResponse" />
   </wsdl:message>
+  <wsdl:message name="HotelServisInterface_DeleteReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReservation" />
+  </wsdl:message>
+  <wsdl:message name="HotelServisInterface_DeleteReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReservationResponse" />
+  </wsdl:message>
   <wsdl:portType name="HotelServisInterface">
     <wsdl:operation name="GetReservations">
       <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/GetReservations" message="tns:HotelServisInterface_GetReservations_InputMessage" />
@@ -58,6 +64,10 @@
     <wsdl:operation name="RegistrationUser">
       <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/RegistrationUser" message="tns:HotelServisInterface_RegistrationUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/RegistrationUserResponse" message="tns:HotelServisInterface_RegistrationUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/HotelServisInterface/DeleteReservation" message="tns:HotelServisInterface_DeleteReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/HotelServisInterface/DeleteReservationResponse" message="tns:HotelServisInterface_DeleteReservation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_HotelServisInterface" type="tns:HotelServisInterface">
@@ -100,6 +110,15 @@
     </wsdl:operation>
     <wsdl:operation name="RegistrationUser">
       <soap:operation soapAction="http://tempuri.org/HotelServisInterface/RegistrationUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReservation">
+      <soap:operation soapAction="http://tempuri.org/HotelServisInterface/DeleteReservation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

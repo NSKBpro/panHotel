@@ -28,10 +28,12 @@ namespace HotelManagment.ViewModels
         HotelRoom cmbHotelRoom = new HotelRoom();
 
         ICommand logoutCommand;
+        ICommand deleteCommand;
 
         public MainApplicationViewModel()
         {
             logoutCommand = new LogoutCommand(this);
+            deleteCommand = new DeleteCommand(this);
         }
        
         public HotelReservation SelectedReservation
@@ -117,12 +119,27 @@ namespace HotelManagment.ViewModels
             }
         }
 
+        public void DeleteReservation(HotelReservation reservationDelete)
+        {
+            hotelService.DeleteReservation(MapperObjectClass.SwapHotelReservation(reservationDelete));
+            MessageBox.Show("Delete successuful!");
+
+        }
+
 
         public ICommand LogoutCommand
         {
             get
             {
                 return logoutCommand;
+            }
+        }
+
+        public ICommand DeleteReservationCommand
+        {
+            get
+            {
+                return deleteCommand;
             }
         }
 
@@ -142,5 +159,7 @@ namespace HotelManagment.ViewModels
             if (PropertyChanged != null)
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+      
     }
 }

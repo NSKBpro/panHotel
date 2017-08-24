@@ -26,6 +26,8 @@ namespace HotelService
 
         [OperationContract]
         bool RegistrationUser(User userFromRegistration);
+        [OperationContract]
+        bool DeleteReservation(Reservation reservationDelete);
     }
 
 

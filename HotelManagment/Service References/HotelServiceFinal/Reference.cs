@@ -44,6 +44,12 @@ namespace HotelManagment.HotelServiceFinal {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/RegistrationUser", ReplyAction="http://tempuri.org/HotelServisInterface/RegistrationUserResponse")]
         System.Threading.Tasks.Task<bool> RegistrationUserAsync(HotelService.User userFromRegistration);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/DeleteReservation", ReplyAction="http://tempuri.org/HotelServisInterface/DeleteReservationResponse")]
+        bool DeleteReservation(HotelService.Reservation reservationDelete);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HotelServisInterface/DeleteReservation", ReplyAction="http://tempuri.org/HotelServisInterface/DeleteReservationResponse")]
+        System.Threading.Tasks.Task<bool> DeleteReservationAsync(HotelService.Reservation reservationDelete);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +117,14 @@ namespace HotelManagment.HotelServiceFinal {
         
         public System.Threading.Tasks.Task<bool> RegistrationUserAsync(HotelService.User userFromRegistration) {
             return base.Channel.RegistrationUserAsync(userFromRegistration);
+        }
+        
+        public bool DeleteReservation(HotelService.Reservation reservationDelete) {
+            return base.Channel.DeleteReservation(reservationDelete);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteReservationAsync(HotelService.Reservation reservationDelete) {
+            return base.Channel.DeleteReservationAsync(reservationDelete);
         }
     }
 }

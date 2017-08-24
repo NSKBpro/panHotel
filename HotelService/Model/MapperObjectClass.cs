@@ -67,5 +67,50 @@ namespace HotelService.Model
 
             return swapedUser;
         }
+
+        public static Room SwapHotelRoom(HotelRoom hotelRoom)
+        {
+            Room room = new Room();
+            room.RoomId = hotelRoom.RoomId;
+            room.RoomNumber = hotelRoom.RoomNumber;
+            room.RoomOccupancy = hotelRoom.RoomOccupancy;
+            room.RoomFloor = hotelRoom.RoomFloor;
+            room.RoomCapacity = hotelRoom.RoomCapacity;
+            room.RoomType = hotelRoom.RoomType;
+
+            return room;
+        }
+
+        public static RoomService SwapRoomService(HotelRoomService hotelRoomService)
+        {
+            RoomService roomService = new RoomService();
+            roomService.RoomServiceId = hotelRoomService.RoomServiceId;
+            roomService.Breakfast = hotelRoomService.Breakfast;
+            roomService.Lunch = hotelRoomService.Lunch;
+            roomService.Dinner = hotelRoomService.Dinner;
+            roomService.CleaningService = hotelRoomService.CleaningService;
+            roomService.ServiceDone = hotelRoomService.ServiceDone;
+            roomService.SpecialService = hotelRoomService.SpecialService;
+
+            return roomService;
+
+
+        }
+
+        public static Reservation SwapHotelReservation(HotelReservation hotelReservation)
+        {
+            Reservation reservation = new Reservation();
+
+            reservation.UserID = hotelReservation.User.UserId;
+            reservation.RoomID = hotelReservation.Room.RoomId;
+            reservation.RoomServiceID = hotelReservation.RoomService.RoomServiceId;
+            reservation.ReservationId = hotelReservation.ReservationId;
+            reservation.Price = hotelReservation.Price;
+            reservation.DateCheckIN = hotelReservation.DateCheckIN;
+            reservation.DateCheckOUT = hotelReservation.DateCheckOUT;
+
+
+            return reservation;
+        }
     }
 }
