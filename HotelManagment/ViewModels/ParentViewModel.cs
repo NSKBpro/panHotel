@@ -18,6 +18,7 @@ namespace HotelManagment.ViewModels
             MainApplicationViewModel = new MainApplicationViewModel();
             LoginViewModel = new LoginViewModel();
             RegistrationViewModel = new RegistrationViewModel();
+            ReservationViewModel = new ReservationViewModel();
         }
 
 
@@ -25,6 +26,7 @@ namespace HotelManagment.ViewModels
         public MainApplicationViewModel MainApplicationViewModel { get; set; }
         public LoginViewModel LoginViewModel { get; set; }
         public RegistrationViewModel RegistrationViewModel {get ;set;}
+        public ReservationViewModel ReservationViewModel { get; set; }
 
 
 

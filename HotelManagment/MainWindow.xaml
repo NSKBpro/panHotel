@@ -184,7 +184,7 @@
                 </DataGrid.Columns>
             </DataGrid>
             <TextBlock Style="{StaticResource SubHeaderTextStyle}" Text="Reservation" HorizontalAlignment="Left" Margin="0,8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="-0.987,0"/>
-            <Button  Style="{StaticResource Button2Style}" Width="200" Height="40" VerticalAlignment="Top"   Margin="0,5,777,0" Grid.Row="2">
+            <Button  Style="{StaticResource Button2Style}" Command="{Binding MainApplicationViewModel.NewReservationCommand}" Width="200" Height="40" VerticalAlignment="Top"   Margin="0,5,777,0" Grid.Row="2">
                 <StackPanel>
 
                     <TextBlock Text="New Reservation" FontSize="14" />

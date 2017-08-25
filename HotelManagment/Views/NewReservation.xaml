@@ -1,0 +1,78 @@
+﻿<Window x:Class="HotelManagment.Views.NewReservation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:HotelManagment.ViewModels" 
+        Title="NewReservation" Height="600" Width="800" Background="LightGray" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Style/ReservationStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:ParentViewModel x:Key="ParentViewModel"/>
+        </ResourceDictionary>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="79*"></RowDefinition>
+            <RowDefinition Height="111*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="DimGray" HorizontalAlignment="Left" Height="213" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="380" />
+        <Rectangle Fill="DimGray" HorizontalAlignment="Left" Height="313" Margin="10,10,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="380"/>
+        <Rectangle  Grid.Column="1" Fill="DimGray" HorizontalAlignment="Left" Height="392" Margin="0,48,0,0" Stroke="Black" VerticalAlignment="Top" Width="372" Grid.RowSpan="2"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" HorizontalAlignment="Left" Margin="23,15,0,0" TextWrapping="Wrap" Text="New Reservation" VerticalAlignment="Top" RenderTransformOrigin="1.299,2.233" Height="16" Width="129"/>
+        <DatePicker HorizontalAlignment="Left" Margin="23,48,0,0" VerticalAlignment="Top" Width="354" Height="24"/>
+        <DatePicker HorizontalAlignment="Left" Margin="23,95,0,0" VerticalAlignment="Top" Width="354" Height="24"/>
+        <TextBlock Foreground="LimeGreen" FontSize="20" FontWeight="Black" HorizontalAlignment="Left" Margin="10,9,0,0" TextWrapping="Wrap" Text="Guest" VerticalAlignment="Top" Height="22" Width="60" Grid.Column="1"/>
+        <ComboBox Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="99,15,0,0" VerticalAlignment="Top" Width="273" Height="22" Grid.Column="1"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" HorizontalAlignment="Left" Margin="23,140,0,0" TextWrapping="Wrap" Text="Free Room" VerticalAlignment="Top" Height="16" Width="69"/>
+        <ComboBox Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="23,161,0,0" VerticalAlignment="Top" Width="354" Height="22"/>
+        <Image Source="/Images/breakfast.png" HorizontalAlignment="Left" Height="100" Margin="23,49,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.055,0.44"/>
+        <CheckBox Foreground="White" FontSize="13" Content="Breakfast" HorizontalAlignment="Left" Margin="36,154,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Image Source="/Images/lunch.png" HorizontalAlignment="Left" Height="100" Margin="155,54,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <CheckBox Foreground="White" FontSize="13" Content="Lunch" HorizontalAlignment="Left" Margin="173,154,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Image  Source="/Images/dinner.png" HorizontalAlignment="Left" Height="100" Margin="277,49,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <CheckBox Foreground="White" FontSize="13" Content="Dinner" HorizontalAlignment="Left" Margin="293,154,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Image Source="/Images/cleaningService.png" HorizontalAlignment="Left" Height="100" Margin="48,187,0,0" Grid.Row="1" VerticalAlignment="Top" Width="103"/>
+        <Image Source="/Images/special.png" HorizontalAlignment="Left" Height="100" Margin="234,187,0,0" Grid.Row="1" VerticalAlignment="Top" Width="111"/>
+        <CheckBox Foreground="White" FontSize="13" Content="Cleaning Service" HorizontalAlignment="Left" Margin="48,292,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.206,0.312"/>
+        <CheckBox Foreground="White" FontSize="13" Content="Special Service" HorizontalAlignment="Left" Margin="234,292,0,0" Grid.Row="1" VerticalAlignment="Top" Width="111"/>
+        <TextBlock Foreground="LimeGreen" FontSize="20" FontWeight="Black" HorizontalAlignment="Left" Margin="128,22,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Room Service" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="26,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="64,56,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" RenderTransformOrigin="-0.61,-0.406"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="256,58,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="203,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="73,112,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" RenderTransformOrigin="-1.207,0.312"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="26,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="255,112,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="203,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="73,167,0,0" TextWrapping="Wrap" Text="UniqueID" VerticalAlignment="Top" RenderTransformOrigin="-1.247,0.146"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="26,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="255,170,0,0" TextWrapping="Wrap" Text="Adress" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="203,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <RadioButton Style="{StaticResource RadioButtonStyle}" GroupName="Gendre" Content="Male" Grid.Column="1" HorizontalAlignment="Left" Margin="69,13,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="-0.012,0.75"/>
+        <RadioButton Style="{StaticResource RadioButtonStyle}"  GroupName="Gendre" Content="Female" Grid.Column="1" HorizontalAlignment="Left" Margin="69,44,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,1.375"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="243,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Date of Bird" VerticalAlignment="Top"/>
+        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="203,33,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="76,81,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="26,102,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="256,81,0,0" Grid.Row="1" TextWrapping="Wrap" Text="State" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="203,102,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="61,133,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" RenderTransformOrigin="0.58,-0.438"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="26,154,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBlock Style="{StaticResource SubSubHeaderTextStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="240,133,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Post Code" VerticalAlignment="Top" RenderTransformOrigin="0.476,-0.313"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="203,157,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <Button Background="LimeGreen" Content="Payment" Grid.Column="1" Margin="0,292,119,0" Grid.Row="1" VerticalAlignment="Top" Height="31"/>
+        <Image Source="/Images/payment.png" Grid.Column="1" HorizontalAlignment="Left" Height="115" Margin="136,187,0,0" Grid.Row="1" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.235,0.6"/>
+        <Button Background="OrangeRed" Content="Back" Grid.Column="1" HorizontalAlignment="Left" Margin="278,292,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94" Height="31"/>
+    </Grid>
+
+
+</Window>

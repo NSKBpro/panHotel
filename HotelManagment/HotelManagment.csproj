@@ -59,9 +59,11 @@
     <Compile Include="Commands\Convertors\RegistrationConvertor.cs" />
     <Compile Include="Commands\LoginCommands\LoginCommand.cs" />
     <Compile Include="Commands\LoginCommands\RegistrationCommand.cs" />
+    <Compile Include="Commands\MainWindowCommand\AddCommand.cs" />
     <Compile Include="Commands\MainWindowCommand\DeleteCommand.cs" />
     <Compile Include="Commands\MainWindowCommand\LogoutCommand.cs" />
     <Compile Include="Commands\RegistrationCommands\RegistrationCommand.cs" />
+    <Compile Include="Commands\ReservationCommand\NewRoomServiceCommand.cs" />
     <Compile Include="Service References\HotelServiceFinal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,8 +74,12 @@
     <Compile Include="ViewModels\MainApplicationViewModel.cs" />
     <Compile Include="ViewModels\ParentViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\ReservationViewModel.cs" />
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewReservation.xaml.cs">
+      <DependentUpon>NewReservation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
@@ -98,11 +104,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Style\ReservationStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewReservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,6 +219,25 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\registration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\breakfast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dinner.png" />
+    <Resource Include="Images\lunch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cleaningService.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="special.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\special.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\payment.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

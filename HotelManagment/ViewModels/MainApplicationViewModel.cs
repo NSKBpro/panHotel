@@ -29,12 +29,14 @@ namespace HotelManagment.ViewModels
 
         ICommand logoutCommand;
         ICommand deleteCommand;
+        ICommand addCommand;
 
         public MainApplicationViewModel()
         {
             RefreshGrid();
             logoutCommand = new LogoutCommand(this);
             deleteCommand = new DeleteCommand(this);
+            addCommand = new AddCommand(this);
         }
        
         public HotelReservation SelectedReservation
@@ -146,6 +148,14 @@ namespace HotelManagment.ViewModels
             }
         }
 
+        public ICommand NewReservationCommand
+        {
+            get
+            {
+                return addCommand;
+            }
+        }
+
 
 
         public void LogoutUser()
@@ -184,6 +194,13 @@ namespace HotelManagment.ViewModels
           
             
         }
-      
+
+
+        internal void AddCommand()
+        {
+            NewReservation nw = new NewReservation();
+            nw.Show();
+            Application.Current.Windows[0].Close();
+        }
     }
 }
