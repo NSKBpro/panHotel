@@ -25,7 +25,7 @@ namespace HotelManagment.Commands.ReservationCommand
 
         public void Execute(object parameter)
         {
-            _reservationViewModel.NewRoomService();
+            //_reservationViewModel.NewRoomService();
         }
     }
 }
